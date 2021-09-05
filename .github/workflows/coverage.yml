@@ -11,7 +11,7 @@ env:
   nim-version: stable
 
 jobs:
-  docs:
+  coverage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -19,7 +19,7 @@ jobs:
         with:
           nim-version: ${{ env.nim-version }}
       - run: |
-          nimble install coco -y
+          nimble install coco nimPNG -y
           coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
       - name: Upload Coverage Reports
         uses: actions/upload-artifact@master
