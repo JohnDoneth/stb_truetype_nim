@@ -1,0 +1,16 @@
+Font	stb_truetype.html#Font	stb_truetype: Font	
+SDF	stb_truetype.html#SDF	stb_truetype: SDF	
+VMetrics	stb_truetype.html#VMetrics	stb_truetype: VMetrics	
+HMetrics	stb_truetype.html#HMetrics	stb_truetype: HMetrics	
+initFont	stb_truetype.html#initFont,openArray[cuchar]	stb_truetype: initFont(data: openArray[cuchar]): Option[Font]	
+getNumberOfFonts	stb_truetype.html#getNumberOfFonts,openArray[cuchar]	stb_truetype: getNumberOfFonts(data: openArray[cuchar]): int	
+getFontOffsetForIndex	stb_truetype.html#getFontOffsetForIndex,openArray[cuchar],int	stb_truetype: getFontOffsetForIndex(data: openArray[cuchar]; index: int): int	
+getFontVMetrics	stb_truetype.html#getFontVMetrics,Font	stb_truetype: getFontVMetrics(font: Font): VMetrics	
+getGlyphKernAdvance	stb_truetype.html#getGlyphKernAdvance,Font,int,int	stb_truetype: getGlyphKernAdvance(font: Font; glyph1: int; glyph2: int): int	
+getGlyphHMetrics	stb_truetype.html#getGlyphHMetrics,Font,int	stb_truetype: getGlyphHMetrics(font: Font; glyph: int): HMetrics	
+isGlyphEmpty	stb_truetype.html#isGlyphEmpty,Font,int	stb_truetype: isGlyphEmpty(font: Font; glyph: int): bool	
+getGlyphSDF	stb_truetype.html#getGlyphSDF,Font,float,int,int,uint8,float	stb_truetype: getGlyphSDF(font: Font; scale: float; glyph_index: int; padding: int;\n            onedge_value: uint8; pixel_dist_scale: float): Option[SDF]	
+getCodepointSDF	stb_truetype.html#getCodepointSDF,Font,float,int,int,uint8,float	stb_truetype: getCodepointSDF(font: Font; scale: float; codepoint: int; padding: int;\n                onedge_value: uint8; pixel_dist_scale: float): Option[SDF]	
+pixels	stb_truetype.html#pixels.i,SDF	stb_truetype: pixels(sdf: SDF): uint8	
+scaleForPixelHeight	stb_truetype.html#scaleForPixelHeight,Font,float	stb_truetype: scaleForPixelHeight(font: Font; pixels: float): float	
+findGlyphIndex	stb_truetype.html#findGlyphIndex,Font,int	stb_truetype: findGlyphIndex(font: Font; unicode_codepoint: int): int	
