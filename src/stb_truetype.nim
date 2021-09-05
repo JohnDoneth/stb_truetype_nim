@@ -23,7 +23,7 @@ type
     ##  ascent is the coordinate above the baseline the font extends; descent
     ##  is the coordinate below the baseline the font extends (i.e. it is typically negative)
     ##  lineGap is the spacing between one row's descent and the next row's ascent...
-    ##  so you should advance the vertical position by "*ascent - *descent + *lineGap"
+    ##  so you should advance the vertical position by "ascent - descent + lineGap"
     ##    these are expressed in unscaled coordinates, so you must multiply by
     ##    the scale factor for a given size
     ascent*: int
@@ -72,7 +72,7 @@ proc getFontVMetrics*(font: Font): VMetrics =
   ##  ascent is the coordinate above the baseline the font extends; descent
   ##  is the coordinate below the baseline the font extends (i.e. it is typically negative)
   ##  lineGap is the spacing between one row's descent and the next row's ascent...
-  ##  so you should advance the vertical position by "*ascent - *descent + *lineGap"
+  ##  so you should advance the vertical position by "ascent - descent + lineGap"
   ##    these are expressed in unscaled coordinates, so you must multiply by
   ##    the scale factor for a given size
   var ascent, descent, lineGap: cint
@@ -194,7 +194,7 @@ proc getCodepointSDF*(
   ##      choice of variables maps a range from 5 pixels outside the shape to
   ##      2 pixels inside the shape to 0..255; this is intended primarily for apply
   ##      outside effects only (the interior range is needed to allow proper
-  ##      antialiasing of the font at *smaller* sizes)
+  ##      antialiasing of the font at smaller sizes)
   ##
   ## The function computes the SDF analytically at each SDF pixel, not by e.g.
   ## building a higher-res bitmap and approximating it. In theory the quality
