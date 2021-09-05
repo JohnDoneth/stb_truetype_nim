@@ -3,7 +3,7 @@ name: coverage
 on:
   push:
     branches: [main]
-    
+
   pull_request:
     branches: [main]
 
@@ -18,9 +18,9 @@ jobs:
       - uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: ${{ env.nim-version }}
-      - run: | 
-        nimble install coco -y
-        coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
+      - run: |
+          nimble install coco -y
+          coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
       - name: Upload Coverage Reports
         uses: actions/upload-artifact@master
         with:
