@@ -23,6 +23,11 @@ jobs:
           sudo apt-get install -y lcov build-essential
           nimble install coco nimPNG -y
           coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
+      - uses: codecov/codecov-action@v2
+        with:
+          files: ./lcov.info
+          fail_ci_if_error: true
+          verbose: true
       - name: Upload Coverage Reports
         uses: actions/upload-artifact@master
         with:
