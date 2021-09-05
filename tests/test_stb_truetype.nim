@@ -42,6 +42,9 @@ suite "initFont":
   test "loads a TTF font from bytes.":
     check initFont(FONT_DATA).isSome()
 
+  test "returns none when the font could not be loaded.":
+    check initFont(@[0.cuchar]).isNone()
+
 suite "getNumberOfFonts":
   test "returns the number of fonts found in TTF data.":
     check getNumberOfFonts(FONT_DATA) == 1

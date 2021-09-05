@@ -1,4 +1,4 @@
-# stb_truetype_nim [![Nim](https://github.com/JohnDoneth/stb_truetype_nim/actions/workflows/nim.yml/badge.svg)](https://github.com/JohnDoneth/stb_truetype_nim/actions/workflows/nim.yml)
+# stb_truetype_nim [![Nim](https://github.com/JohnDoneth/stb_truetype_nim/actions/workflows/nim.yml/badge.svg)](https://github.com/JohnDoneth/stb_truetype_nim/actions/workflows/nim.yml) [![codecov](https://codecov.io/gh/JohnDoneth/stb_truetype_nim/branch/main/graph/badge.svg?token=PV9R9NBJYM)](https://codecov.io/gh/JohnDoneth/stb_truetype_nim)
 
 Simple Nim wrapper for [stb_truetype_nim](https://github.com/nothings/stb).
 
