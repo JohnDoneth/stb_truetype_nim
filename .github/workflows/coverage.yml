@@ -18,16 +18,24 @@ jobs:
       - uses: jiro4989/setup-nim-action@v1
         with:
           nim-version: ${{ env.nim-version }}
-      - run: |
+
+      - name: "Install system packages"
+        run: |
           sudo apt-get update
           sudo apt-get install -y lcov build-essential
-          nimble install coco nimPNG -y
-          coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --cov '!nimcache' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
+
+      - name: "Install Nim packages"
+        run: nimble install coco nimPNG -y
+
+      - name: "Generate Coverage"
+        run: coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --cov '!nimcache' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
+
       - uses: codecov/codecov-action@v2
         with:
           files: ./lcov.info
           fail_ci_if_error: true
           verbose: true
+
       - name: Upload Coverage Reports
         uses: actions/upload-artifact@master
         with:
