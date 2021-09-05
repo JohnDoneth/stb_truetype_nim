@@ -22,7 +22,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y lcov build-essential
           nimble install coco nimPNG -y
-          coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
+          coco --target "tests/**/*.nim" --cov 'src/**/*.nim' --cov '!tests' --cov '!nimcache' --compiler="--opt:speed -d:debug --verbosity:0 --hints:off --lineDir:on"
       - uses: codecov/codecov-action@v2
         with:
           files: ./lcov.info
